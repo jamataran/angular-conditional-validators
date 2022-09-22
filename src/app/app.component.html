@@ -1,0 +1,24 @@
+<h2>My form</h2>
+  
+<form [formGroup]="myForm" 
+(ngSubmit)="onSubmit()">
+  <div>
+    Make email mandatory <input formControlName="myCheckbox"
+                                type="checkbox">
+  </div>
+  <div>
+    Email: <input formControlName="myEmailField"
+                  type="email">
+  </div>
+  <button [formAction]="submit">Submit</button>
+</form>
+
+<h2>Debug</h2>
+<ul>
+	<li>Is my form  valid? {{myForm.valid}}</li>
+	<li><pre>My email field errors:
+{{myForm.controls.myEmailField.errors| json}}</pre></li>
+  <li><pre>My form errors: 
+{{myForm.errors| json}}</pre></li>
+  <li>Form value: {{myForm.value|json}}</li>
+</ul>
